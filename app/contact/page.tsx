@@ -1,11 +1,201 @@
+import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/outline";
+
 export default function Contact() {
     return (
-        <div className="max-w-4xl mx-auto py-16 px-6">
-            <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-            <p>123 River Chase Blvd</p>
-            <p>Orlando, FL 32801</p>
-            <p>Phone: (407) 555-1234</p>
-            <p>Email: info@riverchasepharmacy.com</p>
+        <div>
+            {/* Hero Section */}
+            <section className="bg-gradient-to-br from-sky-700 to-cyan-600 text-white py-20">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+                    <p className="text-xl text-sky-50 leading-relaxed">
+                        We're here to help. Reach out with any questions or concerns.
+                    </p>
+                </div>
+            </section>
+
+            {/* Contact Info */}
+            <section className="max-w-6xl mx-auto py-16 px-6">
+                <div className="grid md:grid-cols-2 gap-12">
+                    {/* Contact Cards */}
+                    <div className="space-y-6">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+                        
+                        <div className="card">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <PhoneIcon className="w-6 h-6 text-sky-700" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg text-gray-900 mb-1">Phone</h3>
+                                    <p className="text-gray-700 mb-2">(407) 555-1234</p>
+                                    <p className="text-sm text-gray-600">Call us during business hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <EnvelopeIcon className="w-6 h-6 text-emerald-600" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg text-gray-900 mb-1">Email</h3>
+                                    <p className="text-gray-700 mb-2">info@riverchasepharmacy.com</p>
+                                    <p className="text-sm text-gray-600">We'll respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <MapPinIcon className="w-6 h-6 text-amber-500" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg text-gray-900 mb-1">Location</h3>
+                                    <p className="text-gray-700 mb-2">
+                                        123 River Chase Blvd<br />
+                                        Orlando, FL 32801
+                                    </p>
+                                    <p className="text-sm text-gray-600">Free parking available</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <ClockIcon className="w-6 h-6 text-purple-600" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg text-gray-900 mb-2">Hours</h3>
+                                    <div className="text-gray-700 space-y-1">
+                                        <p className="flex justify-between">
+                                            <span className="font-medium">Monday - Friday:</span>
+                                            <span>9:00 AM - 7:00 PM</span>
+                                        </p>
+                                        <p className="flex justify-between">
+                                            <span className="font-medium">Saturday:</span>
+                                            <span>9:00 AM - 5:00 PM</span>
+                                        </p>
+                                        <p className="flex justify-between">
+                                            <span className="font-medium">Sunday:</span>
+                                            <span>Closed</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Contact Form */}
+                    <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
+                        <form className="space-y-6">
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Your Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="input"
+                                    placeholder="John Doe"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    required
+                                    className="input"
+                                    placeholder="john@example.com"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    className="input"
+                                    placeholder="(407) 555-0000"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Subject *
+                                </label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="input"
+                                    placeholder="How can we help?"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Message *
+                                </label>
+                                <textarea
+                                    required
+                                    rows={5}
+                                    className="input resize-none"
+                                    placeholder="Tell us more about your inquiry..."
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="btn-primary w-full"
+                            >
+                                Send Message
+                            </button>
+
+                            <p className="text-sm text-gray-600 text-center">
+                                We'll get back to you within 24 hours
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            {/* Map Section */}
+            <section className="bg-gray-100 py-16">
+                <div className="max-w-6xl mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Visit Us</h2>
+                    <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
+                        <p className="text-gray-600 text-lg">[Map Integration Placeholder]</p>
+                    </div>
+                    <p className="text-center text-gray-600 mt-4">
+                        Located in the River Chase Shopping Center with ample free parking
+                    </p>
+                </div>
+            </section>
+
+            {/* Emergency Notice */}
+            <section className="bg-red-50 border-l-4 border-red-500 py-8">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white font-bold text-xl">!</span>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-lg text-red-900 mb-2">Medical Emergency?</h3>
+                            <p className="text-red-800">
+                                If you're experiencing a medical emergency, please call 911 or visit your nearest emergency room immediately. 
+                                For urgent prescription questions after hours, call our emergency line at (407) 555-9999.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

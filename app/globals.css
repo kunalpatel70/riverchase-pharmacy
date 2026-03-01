@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
+  --primary: #0369a1;
+  --primary-dark: #075985;
+  --secondary: #059669;
+  --accent: #f59e0b;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2937;
 }
 
 @theme inline {
@@ -12,22 +16,71 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .input {
   width: 100%;
-  border: 1px solid #d1d5db;
-  padding: 10px;
-  border-radius: 6px;
+  border: 2px solid #e5e7eb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.1);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.3);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
