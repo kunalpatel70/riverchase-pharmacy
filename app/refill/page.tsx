@@ -42,16 +42,22 @@ export default function RefillPage() {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true);
-        
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        console.log("Refill Request:", form);
+
+        const res = await fetch("/api/refill", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form),
+        });
+
         setLoading(false);
+
+        if (!res.ok) {
+            alert("Something went wrong. Please try again.");
+            return;
+        }
+
         setSubmitted(true);
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     if (submitted) {
