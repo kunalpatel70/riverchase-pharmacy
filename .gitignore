@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# amplify
+amplify_outputs.json
+.amplify/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
