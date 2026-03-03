@@ -285,7 +285,11 @@ export default function RefillPage() {
                                 />
                                 <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-sky-700 peer-checked:bg-sky-50 transition">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-sky-700 peer-checked:bg-sky-700 flex items-center justify-center">
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition ${
+                                            form.pickupMethod === "pickup" 
+                                                ? "border-sky-700 bg-sky-700" 
+                                                : "border-gray-400 bg-white"
+                                        }`}>
                                             {form.pickupMethod === "pickup" && (
                                                 <div className="w-2 h-2 bg-white rounded-full" />
                                             )}
@@ -309,7 +313,11 @@ export default function RefillPage() {
                                 />
                                 <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-sky-700 peer-checked:bg-sky-50 transition">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-sky-700 peer-checked:bg-sky-700 flex items-center justify-center">
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition ${
+                                            form.pickupMethod === "delivery" 
+                                                ? "border-sky-700 bg-sky-700" 
+                                                : "border-gray-400 bg-white"
+                                        }`}>
                                             {form.pickupMethod === "delivery" && (
                                                 <div className="w-2 h-2 bg-white rounded-full" />
                                             )}
