@@ -3,6 +3,7 @@ import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 import outputs from "@/amplify_outputs.json";
 import type { Schema } from "@/amplify/data/resource";
+import { sendRefillNotification } from "@/lib/ses";
 
 Amplify.configure(outputs, { ssr: true });
 
@@ -28,6 +29,12 @@ export async function POST(req: Request) {
     if (errors) {
         console.error("DynamoDB error:", errors);
         return NextResponse.json({ success: false, errors }, { status: 500 });
+    }
+
+    try {
+        await sendRefillNotification(body);
+    } catch (err) {
+        console.error("SES error:", err);
     }
 
     return NextResponse.json({ success: true, id: data?.id });
