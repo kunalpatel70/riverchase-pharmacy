@@ -9,7 +9,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Your Health, Our Priority
+                Trusted Pharmacy Care, Right in Your Community
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-sky-50 leading-relaxed">
                 Personalized pharmacy care with a smile. Fast prescriptions, expert advice, and friendly service you can trust.
