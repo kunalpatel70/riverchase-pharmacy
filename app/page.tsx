@@ -54,7 +54,7 @@ export default function Home() {
                 <ClockIcon className="w-6 h-6 text-sky-700" />
                 <div>
                   <p className="text-sm text-gray-600">Hours</p>
-                  <p className="font-semibold text-gray-900">Mon-Fri: 9AM - 7PM</p>
+                  <p className="font-semibold text-gray-900">Mon-Fri: 8:30AM - 4:30PM</p>
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3">
