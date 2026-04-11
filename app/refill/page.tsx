@@ -194,7 +194,7 @@ export default function RefillPage() {
                                     value={form.phone}
                                     onChange={handleChange}
                                     className="input"
-                                    placeholder="(407) 555-0000"
+                                    placeholder="(205) 555-0000"
                                 />
                             </div>
 
@@ -425,8 +425,8 @@ export default function RefillPage() {
                         If you have questions or need assistance with your refill request, please contact us:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:4075551234" className="text-sky-700 hover:text-sky-800 font-semibold">
-                            📞 (407) 555-1234
+                        <a href="tel:2055366014" className="text-sky-700 hover:text-sky-800 font-semibold">
+                            📞 (205) 536-6014
                         </a>
                         <a href="mailto:info@riverchasepharmacy.com" className="text-sky-700 hover:text-sky-800 font-semibold">
                             ✉️ info@riverchasepharmacy.com

@@ -27,7 +27,8 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-900 mb-1">Phone</h3>
-                                    <p className="text-gray-700 mb-2">(407) 555-1234</p>
+                                    <p className="text-gray-700 mb-2">(205) 536-6014</p>
+                                    <p className="text-gray-700 mb-2">Fax: (205) 536-6018</p>
                                     <p className="text-sm text-gray-600">Call us during business hours</p>
                                 </div>
                             </div>
@@ -54,8 +55,9 @@ export default function Contact() {
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-900 mb-1">Location</h3>
                                     <p className="text-gray-700 mb-2">
-                                        123 River Chase Blvd<br />
-                                        Orlando, FL 32801
+                                        3075 John Hawkins Pkwy<br />
+                                        Suite G<br />
+                                        Hoover, AL 35244
                                     </p>
                                     <p className="text-sm text-gray-600">Free parking available</p>
                                 </div>
@@ -123,7 +125,7 @@ export default function Contact() {
                                 <input
                                     type="tel"
                                     className="input"
-                                    placeholder="(407) 555-0000"
+                                    placeholder="(205) 555-0000"
                                 />
                             </div>
 
@@ -190,7 +192,7 @@ export default function Contact() {
                             <h3 className="font-bold text-lg text-red-900 mb-2">Medical Emergency?</h3>
                             <p className="text-red-800">
                                 If you're experiencing a medical emergency, please call 911 or visit your nearest emergency room immediately. 
-                                For urgent prescription questions after hours, call our emergency line at (407) 555-9999.
+                                For urgent prescription questions after hours, call us at (205) 536-6014.
                             </p>
                         </div>
                     </div>

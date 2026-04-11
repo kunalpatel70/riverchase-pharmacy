@@ -47,7 +47,7 @@ export default function Home() {
                 <PhoneIcon className="w-6 h-6 text-sky-700" />
                 <div>
                   <p className="text-sm text-gray-600">Call Us</p>
-                  <p className="font-semibold text-gray-900">(407) 555-1234</p>
+                  <p className="font-semibold text-gray-900">(205) 536-6014</p>
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3">
@@ -61,7 +61,7 @@ export default function Home() {
                 <MapPinIcon className="w-6 h-6 text-sky-700" />
                 <div>
                   <p className="text-sm text-gray-600">Location</p>
-                  <p className="font-semibold text-gray-900">123 River Chase Blvd</p>
+                  <p className="font-semibold text-gray-900">3075 John Hawkins Pkwy, Suite G, Hoover, AL 35244</p>
                 </div>
               </div>
             </div>
