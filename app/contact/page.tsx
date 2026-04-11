@@ -41,7 +41,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-900 mb-1">Email</h3>
-                                    <p className="text-gray-700 mb-2">info@riverchasepharmacy.com</p>
+                                    <p className="text-gray-700 mb-2">riverchasepharmacy@gmail.com</p>
                                     <p className="text-sm text-gray-600">We'll respond within 24 hours</p>
                                 </div>
                             </div>

@@ -428,8 +428,8 @@ export default function RefillPage() {
                         <a href="tel:2055366014" className="text-sky-700 hover:text-sky-800 font-semibold">
                             📞 (205) 536-6014
                         </a>
-                        <a href="mailto:info@riverchasepharmacy.com" className="text-sky-700 hover:text-sky-800 font-semibold">
-                            ✉️ info@riverchasepharmacy.com
+                        <a href="mailto:riverchasepharmacy@gmail.com" className="text-sky-700 hover:text-sky-800 font-semibold">
+                            ✉️ riverchasepharmacy@gmail.com
                         </a>
                     </div>
                 </div>
