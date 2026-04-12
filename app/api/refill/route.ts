@@ -32,6 +32,13 @@ export async function POST(req: Request) {
     }
 
     try {
+        console.log("SES env check:", {
+            region: process.env.REGION_AWS,
+            from: process.env.SES_FROM_EMAIL,
+            to: process.env.PHARMACY_NOTIFY_EMAIL,
+            hasAccessKey: !!process.env.SES_ACCESS_KEY_ID,
+            hasSecret: !!process.env.SES_SECRET_ACCESS_KEY,
+        });
         await sendRefillNotification(body);
     } catch (err) {
         console.error("SES error:", err);
