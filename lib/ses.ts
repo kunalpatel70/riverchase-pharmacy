@@ -2,6 +2,14 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
 const ses = new SESClient({
     region: process.env.REGION_AWS ?? "us-east-1",
+    ...(process.env.SES_ACCESS_KEY_ID && process.env.SES_SECRET_ACCESS_KEY
+        ? {
+              credentials: {
+                  accessKeyId: process.env.SES_ACCESS_KEY_ID,
+                  secretAccessKey: process.env.SES_SECRET_ACCESS_KEY,
+              },
+          }
+        : {}),
 });
 
 export async function sendRefillNotification(body: {
