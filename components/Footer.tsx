@@ -110,19 +110,10 @@ export default function Footer() {
 
             {/* Bottom bar */}
             <div className="border-t border-gray-800">
-                <div className="max-w-7xl mx-auto px-6 py-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div className="flex flex-wrap justify-center gap-4 text-xs">
-                            {navLinks.map((link) => (
-                                <Link key={link.href} href={link.href} className="hover:text-white transition">
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
-                        <p className="text-xs text-gray-500">
-                            © {new Date().getFullYear()} River Chase Pharmacy. All rights reserved.
-                        </p>
-                    </div>
+                <div className="max-w-7xl mx-auto px-6 py-4 text-center">
+                    <p className="text-xs text-gray-500">
+                        © {new Date().getFullYear()} River Chase Pharmacy. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>
