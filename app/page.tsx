@@ -167,12 +167,12 @@ export default function Home() {
                                 href={s.href}
                                 className="group bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition"
                             >
-                                <div className="relative h-48 overflow-hidden">
+                                <div className="relative h-48 overflow-hidden bg-gray-100">
                                     <Image
                                         src={s.img}
                                         alt={s.title}
                                         fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                        className="object-contain group-hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>
                                 <div className="p-5">

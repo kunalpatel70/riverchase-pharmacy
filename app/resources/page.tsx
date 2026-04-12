@@ -1,4 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Resources",
+    description:
+        "Helpful pharmacy resources from River Chase Pharmacy including prescription refill tools, health information links, and insurance and savings programs.",
+};
 
 const resources: { category: string; items: { name: string; desc: string; href: string; external?: boolean }[] }[] = [
     {

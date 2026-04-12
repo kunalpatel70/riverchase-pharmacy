@@ -1,4 +1,11 @@
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/outline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact Us",
+    description:
+        "Contact River Chase Pharmacy at (205) 536-6014. Located at 3075 John Hawkins Pkwy Suite G, Hoover, AL 35244. Open Mon-Fri 9am-6pm, Sat 9am-1pm.",
+};
 
 export default function Contact() {
     return (
@@ -172,9 +179,14 @@ export default function Contact() {
             <section className="bg-gray-100 py-16">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Visit Us</h2>
-                    <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
-                        <p className="text-gray-600 text-lg">[Map Integration Placeholder]</p>
-                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8!2d-86.8105!3d33.3765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88891b1f5c3e1b3d%3A0x0!2s3075+John+Hawkins+Pkwy+Suite+G%2C+Hoover%2C+AL+35244!5e0!3m2!1sen!2sus!4v1700000000000"
+                        className="w-full h-96 rounded-lg border-0"
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="River Chase Pharmacy Location"
+                    />
                     <p className="text-center text-gray-600 mt-4">
                         Located in the River Chase Shopping Center with ample free parking
                     </p>

@@ -1,4 +1,28 @@
-import { ClipboardDocumentCheckIcon, ShieldCheckIcon, BeakerIcon, TruckIcon, HeartIcon, ChatBubbleLeftRightIcon, CreditCardIcon, UserGroupIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Services",
+    description:
+        "River Chase Pharmacy offers affordable vitamins, special packaging, immunizations, free prescription home delivery, medication therapy management, and more in Hoover, AL.",
+};
+
+const services = [
+    { label: "Affordable Vitamins", href: "/services" },
+    { label: "Special Packaging (Unit Dose and Multi-Dose)", href: "/services" },
+    { label: "Medical Supplies", href: "/medical-supplies" },
+    { label: "Free Prescription Home Delivery", href: "/services" },
+    { label: "Electronic Prescriptions Accepted", href: "/services" },
+    { label: "Immunization", href: "/services" },
+    { label: "Specialized in Psych Meds", href: "/services" },
+    { label: "HIV Meds Also Dispensed", href: "/services" },
+    { label: "Full Line of Over-The-Counter Products Available", href: "/services" },
+    { label: "Injectable Medications", href: "/services" },
+    { label: "Medication Therapy Management", href: "/services" },
+    { label: "Flu Shots", href: "/services" },
+    { label: "Free Blood Pressure Checks", href: "/services" },
+];
 
 export default function Services() {
     return (
@@ -6,199 +30,70 @@ export default function Services() {
             {/* Hero Section */}
             <section className="bg-gradient-to-br from-sky-700 to-cyan-600 text-white py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-                    <p className="text-xl text-sky-50 leading-relaxed">
-                        Comprehensive pharmacy services designed with your health in mind
-                    </p>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Services</h1>
                 </div>
             </section>
 
-            {/* Services Grid */}
-            <section className="max-w-7xl mx-auto py-16 px-6">
-                <div className="grid md:grid-cols-2 gap-8">
-                    {/* Prescription Services */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <ClipboardDocumentCheckIcon className="w-7 h-7 text-sky-700" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Prescription Filling & Transfers</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Fast, accurate prescription filling with most orders ready in 15 minutes. We accept transfers 
-                                    from any pharmacy and work with all major insurance providers.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Same-day refills available</li>
-                                    <li>• Automatic refill reminders</li>
-                                    <li>• Easy online refill requests</li>
-                                </ul>
-                            </div>
-                        </div>
+            {/* Main Content */}
+            <section className="max-w-5xl mx-auto py-16 px-6">
+                <div className="md:flex gap-8 mb-10">
+                    <div className="md:w-1/3 mb-6 md:mb-0 flex-shrink-0">
+                        <Image
+                            src="/services-thumb.jpg"
+                            alt="Pharmacist holding medicine"
+                            width={300}
+                            height={200}
+                            className="rounded-lg object-cover w-full"
+                        />
                     </div>
-
-                    {/* Immunizations */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <ShieldCheckIcon className="w-7 h-7 text-emerald-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Immunizations & Vaccines</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Protect yourself and your family with our comprehensive immunization services. 
-                                    Walk-ins welcome, no appointment necessary.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Flu shots (seasonal)</li>
-                                    <li>• COVID-19 vaccines</li>
-                                    <li>• Shingles, pneumonia, and more</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Medication Therapy Management */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <ChatBubbleLeftRightIcon className="w-7 h-7 text-purple-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Medication Therapy Management</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Free comprehensive medication reviews with our pharmacists to optimize your therapy, 
-                                    reduce side effects, and improve health outcomes.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Medication interaction checks</li>
-                                    <li>• Dosage optimization</li>
-                                    <li>• Side effect management</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* OTC Products */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <HeartIcon className="w-7 h-7 text-amber-500" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Over-the-Counter Products</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Wide selection of OTC medications, vitamins, supplements, and health products. 
-                                    Our pharmacists can help you choose the right products.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Pain relief & cold medicine</li>
-                                    <li>• Vitamins & supplements</li>
-                                    <li>• First aid & medical supplies</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Compounding */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <BeakerIcon className="w-7 h-7 text-cyan-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Compounding Services</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Custom medication formulations tailored to your specific needs. Perfect for patients 
-                                    with allergies, unique dosing requirements, or flavor preferences.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Custom dosage forms</li>
-                                    <li>• Allergen-free formulations</li>
-                                    <li>• Flavoring for children</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Delivery */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <TruckIcon className="w-7 h-7 text-rose-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Free Local Delivery</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Can't make it to the pharmacy? We offer complimentary delivery service to your home 
-                                    or workplace within our service area.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Same-day delivery available</li>
-                                    <li>• Contactless delivery options</li>
-                                    <li>• Delivery tracking updates</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Insurance */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <CreditCardIcon className="w-7 h-7 text-indigo-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Insurance & Billing</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    We accept most insurance plans and work hard to ensure you get the best price. 
-                                    Our team can help you navigate coverage and find savings programs.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• All major insurance accepted</li>
-                                    <li>• Discount programs available</li>
-                                    <li>• Price matching assistance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Consultations */}
-                    <div className="card">
-                        <div className="flex items-start gap-4">
-                            <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <UserGroupIcon className="w-7 h-7 text-teal-600" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-xl mb-3 text-gray-900">Health Consultations</h3>
-                                <p className="text-gray-700 leading-relaxed mb-3">
-                                    Free one-on-one consultations with our licensed pharmacists. Get expert advice on 
-                                    medications, health conditions, and wellness strategies.
-                                </p>
-                                <ul className="text-sm text-gray-600 space-y-1">
-                                    <li>• Medication counseling</li>
-                                    <li>• Health screenings</li>
-                                    <li>• Wellness advice</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                            At River Chase Pharmacy, we always aim for a thorough and integrated approach to patient
+                            care. This is why we make sure that the needs of every customer who walks into our store
+                            will be addressed.
+                        </p>
+                        <p className="text-gray-700 leading-relaxed">
+                            River Chase Pharmacy is a one-stop shop pharmacy where you can choose from our extensive
+                            service options listed below:
+                        </p>
                     </div>
                 </div>
-            </section>
 
-            {/* CTA */}
-            <section className="bg-sky-700 text-white py-16">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold mb-4">Have Questions About Our Services?</h2>
-                    <p className="text-xl text-sky-50 mb-8">
-                        Our friendly team is here to help. Contact us today to learn more.
+                {/* Services List */}
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-10">
+                    {services.map((s) => (
+                        <li key={s.label} className="flex items-start gap-2">
+                            <span className="text-sky-700 mt-0.5">✔</span>
+                            <Link href={s.href} className="text-sky-700 underline hover:text-sky-900">
+                                {s.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Highlighted Info */}
+                <div className="bg-sky-50 border-l-4 border-sky-700 rounded-r-lg p-6 mb-10 text-center">
+                    <p className="text-gray-800 font-semibold italic mb-2">
+                        We take all discount cards and coupons/trial cards!
                     </p>
-                    <a
+                    <p className="text-gray-800 font-semibold italic">
+                        We are open Mondays to Fridays from 9 a.m. to 6 p.m. and Saturdays from 9 a.m. to 1 p.m.
+                        We are closed on Sundays.
+                    </p>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed text-lg">
+                    For your pharmacy needs, always choose River Chase Pharmacy. To ask for pricing, please do not
+                    hesitate to call us at <strong className="text-sky-700">(205) 536-6014</strong>.
+                </p>
+
+                <div className="mt-8">
+                    <Link
                         href="/contact"
-                        className="bg-white text-sky-700 px-8 py-3 rounded-lg font-bold inline-block hover:bg-sky-50 transition"
+                        className="inline-block bg-sky-700 text-white px-8 py-3 rounded font-semibold hover:bg-sky-800 transition"
                     >
                         Contact Us
-                    </a>
+                    </Link>
                 </div>
             </section>
         </div>
