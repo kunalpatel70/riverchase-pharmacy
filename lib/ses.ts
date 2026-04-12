@@ -1,9 +1,7 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 
 const ses = new SESClient({
     region: process.env.REGION_AWS ?? "us-east-1",
-    credentials: fromNodeProviderChain(),
 });
 
 export async function sendRefillNotification(body: {
