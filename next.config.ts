@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     PHARMACY_NOTIFY_EMAIL: process.env.PHARMACY_NOTIFY_EMAIL,
     SES_ACCESS_KEY_ID: process.env.SES_ACCESS_KEY_ID,
     SES_SECRET_ACCESS_KEY: process.env.SES_SECRET_ACCESS_KEY,
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
   },
 };
 

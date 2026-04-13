@@ -14,6 +14,7 @@ const schema = a.schema({
             preferredTime: a.string(),
             notes: a.string(),
             status: a.string().default("pending"),
+            pharmacistNotes: a.string(),
         })
         .authorization((allow) => [allow.publicApiKey()]),
 });
