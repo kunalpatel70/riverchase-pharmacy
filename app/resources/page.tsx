@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Resources",
     description:
-        "Helpful pharmacy resources from River Chase Pharmacy including prescription refill tools, health information links, and insurance and savings programs.",
+        "Helpful pharmacy resources from Riverchase Pharmacy including prescription refill tools, health information links, and insurance and savings programs.",
 };
 
 const resources: { category: string; items: { name: string; desc: string; href: string; external?: boolean }[] }[] = [
     {
-        category: "Prescription Resources",
+        category: "Local Health Resources",
         items: [
-            { name: "Rx Refill Request", desc: "Submit your prescription refill online.", href: "/refill" },
-            { name: "Transfer Prescription", desc: "Transfer your prescriptions to River Chase Pharmacy.", href: "/contact" },
-            { name: "Free Home Delivery", desc: "Get your prescriptions delivered to your door at no cost.", href: "/services" },
+            { name: "Jefferson County Dept. of Health", desc: "Local public health services, clinics, and programs.", href: "https://www.jcdh.org/", external: true },
+            { name: "Alabama Medicaid", desc: "Alabama-specific Medicaid eligibility, enrollment, and benefits.", href: "https://medicaid.alabama.gov/", external: true },
+            { name: "Alabama Department of Public Health", desc: "Statewide health resources, disease prevention, and vital records.", href: "https://www.alabamapublichealth.gov/", external: true },
         ],
     },
     {
@@ -38,10 +38,10 @@ export default function Resources() {
     return (
         <div>
             {/* Hero */}
-            <section className="bg-sky-700 text-white py-20">
+            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">Resources</h1>
-                    <p className="text-xl text-sky-100 leading-relaxed">
+                    <p className="text-xl text-teal-100 leading-relaxed">
                         Helpful links and tools to support your health and wellness journey
                     </p>
                 </div>
@@ -51,7 +51,7 @@ export default function Resources() {
             <section className="max-w-6xl mx-auto py-16 px-6 space-y-16">
                 {resources.map((group) => (
                     <div key={group.category}>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-sky-700">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-teal-700">
                             {group.category}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
@@ -62,7 +62,7 @@ export default function Resources() {
                                     {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                     className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition group border border-gray-100"
                                 >
-                                    <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-sky-700 transition">
+                                    <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-teal-700 transition">
                                         {item.name}
                                         {item.external && <span className="text-gray-400 text-sm ml-1">↗</span>}
                                     </h3>
@@ -75,7 +75,7 @@ export default function Resources() {
             </section>
 
             {/* CTA */}
-            <section className="bg-gray-50 py-16">
+            <section className="bg-gradient-to-b from-gray-50 to-teal-50/30 py-16">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Can&apos;t Find What You Need?</h2>
                     <p className="text-lg text-gray-600 mb-8">
@@ -83,7 +83,7 @@ export default function Resources() {
                     </p>
                     <Link
                         href="/contact"
-                        className="bg-sky-700 text-white px-8 py-3 rounded font-bold inline-block hover:bg-sky-800 transition"
+                        className="bg-teal-700 text-white px-8 py-3 rounded font-bold inline-block hover:bg-teal-800 transition"
                     >
                         Contact Us
                     </Link>

@@ -4,17 +4,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Contact Us",
     description:
-        "Contact River Chase Pharmacy at (205) 536-6014. Located at 3075 John Hawkins Pkwy Suite G, Hoover, AL 35244. Open Mon-Fri 9am-6pm, Sat 9am-1pm.",
+        "Contact Riverchase Pharmacy at (205) 536-6014. Located at 3075 John Hawkins Pkwy Suite G, Hoover, AL 35244. Open Mon-Fri 9am-6pm, Sat 9am-1pm.",
 };
 
 export default function Contact() {
     return (
         <div>
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-sky-700 to-cyan-600 text-white py-20">
+            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-                    <p className="text-xl text-sky-50 leading-relaxed">
+                    <p className="text-xl text-teal-50 leading-relaxed">
                         We're here to help. Reach out with any questions or concerns.
                     </p>
                 </div>
@@ -29,8 +29,8 @@ export default function Contact() {
                         
                         <div className="card">
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <PhoneIcon className="w-6 h-6 text-sky-700" />
+                                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <PhoneIcon className="w-6 h-6 text-teal-700" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg text-gray-900 mb-1">Phone</h3>
@@ -185,10 +185,10 @@ export default function Contact() {
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="River Chase Pharmacy Location"
+                        title="Riverchase Pharmacy Location"
                     />
                     <p className="text-center text-gray-600 mt-4">
-                        Located in the River Chase Shopping Center with ample free parking
+                        Located in the Riverchase Shopping Center with ample free parking
                     </p>
                 </div>
             </section>

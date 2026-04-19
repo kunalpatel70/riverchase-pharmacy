@@ -33,13 +33,13 @@ export default function Home() {
                     <Image
                         key={src}
                         src={src}
-                        alt="River Chase Pharmacy"
+                        alt="Riverchase Pharmacy"
                         fill
                         className={`object-cover transition-opacity duration-700 ${i === currentSlide ? "opacity-100" : "opacity-0"}`}
                         priority={i === 0}
                     />
                 ))}
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/60 to-black/30 flex items-center justify-center">
                     <div className="text-center text-white px-6">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
                             Your Dependable Pharmacy
@@ -62,39 +62,50 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Three Quick Action Cards */}
-            <section className="bg-sky-700">
-                <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-                    <div className="bg-white/10 backdrop-blur rounded-lg p-8 text-white text-center hover:bg-white/20 transition">
+            {/* Quick Action Cards */}
+            <section className="bg-gradient-to-r from-teal-700 to-teal-600">
+                <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-4 gap-6">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
                         <h2 className="text-2xl font-bold mb-1">
-                            Rx <span className="text-sky-200">Refills</span>
+                            Rx <span className="text-teal-200">Refills</span>
                         </h2>
-                        <p className="text-sky-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm">
                             Rx refills make your life convenient with continuous medication supply.
                         </p>
-                        <Link href="/refill" className="inline-block border-2 border-white text-white px-6 py-2 rounded font-semibold hover:bg-white hover:text-sky-700 transition text-sm">
+                        <Link href="/refill" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
                             Click Here »
                         </Link>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-lg p-8 text-white text-center hover:bg-white/20 transition">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
                         <h2 className="text-2xl font-bold mb-1">
-                            Transfer <span className="text-sky-200">Prescription</span>
+                            Transfer <span className="text-teal-200">Prescription</span>
                         </h2>
-                        <p className="text-sky-100 mb-4 text-sm">
-                            Transfer your prescriptions to River Chase Pharmacy today!
+                        <p className="text-teal-100 mb-4 text-sm">
+                            Transfer your prescriptions to Riverchase Pharmacy today!
                         </p>
-                        <Link href="/contact" className="inline-block border-2 border-white text-white px-6 py-2 rounded font-semibold hover:bg-white hover:text-sky-700 transition text-sm">
+                        <Link href="/contact" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
                             Click Here »
                         </Link>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-lg p-8 text-white text-center hover:bg-white/20 transition">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
                         <h2 className="text-2xl font-bold mb-1">
-                            Free Home <span className="text-sky-200">Delivery</span>
+                            Free Home <span className="text-teal-200">Delivery</span>
                         </h2>
-                        <p className="text-sky-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm">
                             No time to visit our store for prescription pickup? No problem! We deliver.
                         </p>
-                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded font-semibold hover:bg-white hover:text-sky-700 transition text-sm">
+                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
+                            Click Here »
+                        </Link>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
+                        <h2 className="text-2xl font-bold mb-1">
+                            Express <span className="text-teal-200">Clinic</span>
+                        </h2>
+                        <p className="text-teal-100 mb-4 text-sm">
+                            Walk-in clinic on site for quick and convenient care.
+                        </p>
+                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
                             Click Here »
                         </Link>
                     </div>
@@ -102,35 +113,37 @@ export default function Home() {
             </section>
 
             {/* Welcome Section */}
-            <section className="max-w-5xl mx-auto py-16 px-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Welcome to <span className="text-sky-700">River Chase Pharmacy</span>
-                </h2>
-                <p className="text-gray-700 leading-relaxed text-lg">
-                    We prioritize the entire family&apos;s health. We make sure that we render services that do not only
-                    meet your expectations but also exceed them. These services are rendered by pharmacists who have the
-                    expertise, qualifications, and experience in doing so. Our health products are safe, durable and
-                    affordable. At River Chase Pharmacy, you get the best things for your health at the best price.
-                    Visit us today!
-                </p>
+            <section className="bg-gradient-to-b from-white to-teal-50/30">
+                <div className="max-w-5xl mx-auto py-16 px-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        Welcome to <span className="text-teal-700">Riverchase Pharmacy</span>
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                        We prioritize the entire family&apos;s health. We make sure that we render services that do not only
+                        meet your expectations but also exceed them. These services are rendered by pharmacists who have the
+                        expertise, qualifications, and experience in doing so. Our health products are safe, durable and
+                        affordable. At Riverchase Pharmacy, you get the best things for your health at the best price.
+                        Visit us today!
+                    </p>
+                </div>
             </section>
 
             {/* Mission Statement */}
-            <section className="bg-gray-50">
+            <section className="bg-gradient-to-br from-teal-50 to-emerald-50">
                 <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                            Our Mission <span className="text-sky-700">Statement</span>
+                            Our Mission <span className="text-teal-700">Statement</span>
                         </h2>
                         <p className="text-gray-700 leading-relaxed mb-6">
-                            It is the mission of River Chase Pharmacy to promote a thriving community by ensuring the
+                            It is the mission of Riverchase Pharmacy to promote a thriving community by ensuring the
                             good health of its fellow community members. We can make this mission possible by providing a
                             wide array of pharmacy services and a complete line of pharmacy products that will cater to
                             each member&apos;s specific health needs.
                         </p>
                         <Link
                             href="/about"
-                            className="inline-block bg-sky-700 text-white px-8 py-3 rounded font-semibold hover:bg-sky-800 transition"
+                            className="inline-block bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-800 transition"
                         >
                             About Us
                         </Link>
@@ -141,18 +154,18 @@ export default function Home() {
                             alt="Pharmacist"
                             width={400}
                             height={400}
-                            className="rounded-lg object-contain"
+                            className="rounded-xl object-contain"
                         />
                     </div>
                 </div>
             </section>
 
             {/* Services We Offer */}
-            <section className="py-16">
+            <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-4">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                            Services <span className="text-sky-700">We Offer</span>
+                            Services <span className="text-teal-700">We Offer</span>
                         </h2>
                         <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
                             We are offering a broad range of pharmacy services that you can take advantage of. Our
@@ -165,9 +178,9 @@ export default function Home() {
                             <Link
                                 key={s.title}
                                 href={s.href}
-                                className="group bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+                                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition border border-gray-100"
                             >
-                                <div className="relative h-48 overflow-hidden bg-gray-100">
+                                <div className="relative h-48 overflow-hidden bg-gray-50">
                                     <Image
                                         src={s.img}
                                         alt={s.title}
@@ -178,7 +191,7 @@ export default function Home() {
                                 <div className="p-5">
                                     <h3 className="font-bold text-lg text-gray-900 mb-1">{s.title}</h3>
                                     <p className="text-gray-600 text-sm">{s.desc}</p>
-                                    <span className="text-sky-700 font-semibold text-sm mt-3 inline-block group-hover:underline">
+                                    <span className="text-teal-700 font-semibold text-sm mt-3 inline-block group-hover:underline">
                                         Learn More »
                                     </span>
                                 </div>
@@ -189,7 +202,7 @@ export default function Home() {
                     <div className="text-center mt-10">
                         <Link
                             href="/services"
-                            className="inline-block bg-sky-700 text-white px-10 py-3 rounded font-semibold hover:bg-sky-800 transition"
+                            className="inline-block bg-teal-700 text-white px-10 py-3 rounded-lg font-semibold hover:bg-teal-800 transition"
                         >
                             View More Services
                         </Link>

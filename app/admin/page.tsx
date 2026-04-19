@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
         <div className="flex items-center justify-center min-h-screen">
             <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm">
                 <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center">Admin Portal</h1>
-                <p className="text-sm text-gray-500 mb-6 text-center">River Chase Pharmacy</p>
+                <p className="text-sm text-gray-500 mb-6 text-center">Riverchase Pharmacy</p>
 
                 {error && (
                     <div className="bg-red-50 text-red-700 text-sm rounded p-3 mb-4">{error}</div>

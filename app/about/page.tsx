@@ -5,14 +5,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "About Us",
     description:
-        "Learn about River Chase Pharmacy in Hoover, Alabama. Established with the health of the entire family in mind, our licensed pharmacists provide quality care and products.",
+        "Learn about Riverchase Pharmacy in Hoover, Alabama. Established with the health of the entire family in mind, our licensed pharmacists provide quality care and products.",
 };
 
 export default function About() {
     return (
         <div>
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-sky-700 to-cyan-600 text-white py-20">
+            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
                 </div>
@@ -31,11 +31,11 @@ export default function About() {
                         />
                     </div>
                     <div>
-                        <p className="text-sky-700 italic text-lg mb-4">
+                        <p className="text-teal-700 italic text-lg mb-4">
                             A Pharmacy That Cares for You and Your Family!
                         </p>
                         <p className="text-gray-700 leading-relaxed mb-4">
-                            River Chase Pharmacy is established with the health of the entire family in mind. We
+                            Riverchase Pharmacy is established with the health of the entire family in mind. We
                             understand how great the impact of a healthy person is in ensuring the good health of his or
                             her entire family.
                         </p>
@@ -54,12 +54,12 @@ export default function About() {
                 </div>
 
                 {/* Mission */}
-                <div className="bg-sky-50 border-l-4 border-sky-700 rounded-r-lg p-6 mb-10">
+                <div className="bg-teal-50 border-l-4 border-teal-700 rounded-r-lg p-6 mb-10">
                     <h2 className="text-xl font-bold text-gray-900 mb-2">
                         <u>Mission</u>
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
-                        It is the mission of River Chase Pharmacy to promote a thriving community by ensuring the good
+                        It is the mission of Riverchase Pharmacy to promote a thriving community by ensuring the good
                         health of its families. We can make this mission possible by providing a wide array of pharmacy
                         services and a complete line of pharmacy products that will cater to each member&apos;s specific
                         health needs.
@@ -68,13 +68,13 @@ export default function About() {
 
                 <p className="text-gray-700 leading-relaxed text-lg">
                     Visit our pharmacy to find out how we can assist you with your pharmacy needs. You may also call us
-                    at <strong className="text-sky-700">(205) 536-6014</strong> for further inquiries.
+                    at <strong className="text-teal-700">(205) 536-6014</strong> for further inquiries.
                 </p>
 
                 <div className="mt-8">
                     <Link
                         href="/contact"
-                        className="inline-block bg-sky-700 text-white px-8 py-3 rounded font-semibold hover:bg-sky-800 transition"
+                        className="inline-block bg-teal-700 text-white px-8 py-3 rounded font-semibold hover:bg-teal-800 transition"
                     >
                         Contact Us
                     </Link>

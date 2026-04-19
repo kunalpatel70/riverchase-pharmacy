@@ -62,7 +62,7 @@ export default function RefillPage() {
 
     if (submitted) {
         return (
-            <div className="min-h-screen bg-gray-50 py-16 px-6">
+            <div className="min-h-screen bg-gradient-to-b from-gray-50 to-teal-50/20 py-16 px-6">
                 <div className="max-w-2xl mx-auto">
                     <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
                         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -74,19 +74,19 @@ export default function RefillPage() {
                         <p className="text-lg text-gray-700 mb-6">
                             Thank you, {form.firstName}! We've received your prescription refill request.
                         </p>
-                        <div className="bg-sky-50 border border-sky-200 rounded-lg p-6 mb-8 text-left">
+                        <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-8 text-left">
                             <h3 className="font-semibold text-gray-900 mb-3">What happens next?</h3>
                             <ul className="space-y-2 text-gray-700">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-sky-700 font-bold">1.</span>
+                                    <span className="text-teal-700 font-bold">1.</span>
                                     <span>We'll process your request within 2-4 hours</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-sky-700 font-bold">2.</span>
+                                    <span className="text-teal-700 font-bold">2.</span>
                                     <span>You'll receive a confirmation call or text at {form.phone}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-sky-700 font-bold">3.</span>
+                                    <span className="text-teal-700 font-bold">3.</span>
                                     <span>
                                         {form.pickupMethod === "pickup" 
                                             ? "Your prescription will be ready for pickup" 
@@ -127,7 +127,7 @@ export default function RefillPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-6">
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-teal-50/20 py-12 px-6">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -140,10 +140,9 @@ export default function RefillPage() {
                 </div>
 
                 {/* Info Banner */}
-                <div className="bg-sky-50 border border-sky-200 rounded-lg p-4 mb-8">
-                    <p className="text-sm text-sky-900">
-                        <span className="font-semibold">Quick turnaround:</span> Most refills are ready within 2-4 hours. 
-                        We'll contact you when your prescription is ready.
+                <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-8">
+                    <p className="text-sm text-teal-900">
+                        <span className="font-semibold">Quick turnaround:</span> Most refills are ready within 2-4 hours.
                     </p>
                 </div>
 
@@ -267,7 +266,7 @@ export default function RefillPage() {
                         <button
                             type="button"
                             onClick={addRxField}
-                            className="mt-4 text-sky-700 hover:text-sky-800 font-semibold text-sm flex items-center gap-2"
+                            className="mt-4 text-teal-700 hover:text-teal-800 font-semibold text-sm flex items-center gap-2"
                         >
                             <span className="text-xl">+</span> Add Another Prescription
                         </button>
@@ -289,11 +288,11 @@ export default function RefillPage() {
                                     onChange={handleChange}
                                     className="peer sr-only"
                                 />
-                                <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-sky-700 peer-checked:bg-sky-50 transition">
+                                <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-teal-700 peer-checked:bg-teal-50 transition">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition ${
                                             form.pickupMethod === "pickup" 
-                                                ? "border-sky-700 bg-sky-700" 
+                                                ? "border-teal-700 bg-teal-700" 
                                                 : "border-gray-400 bg-white"
                                         }`}>
                                             {form.pickupMethod === "pickup" && (
@@ -317,11 +316,11 @@ export default function RefillPage() {
                                     onChange={handleChange}
                                     className="peer sr-only"
                                 />
-                                <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-sky-700 peer-checked:bg-sky-50 transition">
+                                <div className="border-2 border-gray-300 rounded-lg p-6 peer-checked:border-teal-700 peer-checked:bg-teal-50 transition">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition ${
                                             form.pickupMethod === "delivery" 
-                                                ? "border-sky-700 bg-sky-700" 
+                                                ? "border-teal-700 bg-teal-700" 
                                                 : "border-gray-400 bg-white"
                                         }`}>
                                             {form.pickupMethod === "delivery" && (
@@ -425,10 +424,10 @@ export default function RefillPage() {
                         If you have questions or need assistance with your refill request, please contact us:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:2055366014" className="text-sky-700 hover:text-sky-800 font-semibold">
+                        <a href="tel:2055366014" className="text-teal-700 hover:text-teal-800 font-semibold">
                             📞 (205) 536-6014
                         </a>
-                        <a href="mailto:riverchasepharmacy@gmail.com" className="text-sky-700 hover:text-sky-800 font-semibold">
+                        <a href="mailto:riverchasepharmacy@gmail.com" className="text-teal-700 hover:text-teal-800 font-semibold">
                             ✉️ riverchasepharmacy@gmail.com
                         </a>
                     </div>

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Medical Supplies",
     description:
-        "River Chase Pharmacy carries durable medical supplies including canes, walkers, wheelchairs, nebulizers, compression stockings, wound care supplies, and more in Hoover, AL.",
+        "Riverchase Pharmacy carries durable medical supplies including canes, walkers, wheelchairs, nebulizers, compression stockings, wound care supplies, and more in Hoover, AL.",
 };
 
 const supplies = [
@@ -27,7 +27,7 @@ export default function MedicalSupplies() {
     return (
         <div>
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-sky-700 to-cyan-600 text-white py-20">
+            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">Medical Supplies</h1>
                 </div>
@@ -44,7 +44,7 @@ export default function MedicalSupplies() {
                         className="rounded-lg object-cover float-left mr-8 mb-4"
                     />
                     <p className="text-gray-700 leading-relaxed mb-6">
-                        We take pride in the durability of the medical supplies that are obtainable at River Chase
+                        We take pride in the durability of the medical supplies that are obtainable at Riverchase
                         Pharmacy. We have the best brands of medical equipment that you can use at home for your
                         specific situation. Our medical supplies include, but are not limited to:
                     </p>
@@ -52,7 +52,7 @@ export default function MedicalSupplies() {
                     <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
                         {supplies.map((item) => (
                             <li key={item} className="flex items-start gap-2">
-                                <span className="text-sky-700 mt-0.5 flex-shrink-0">✔</span>
+                                <span className="text-teal-700 mt-0.5 flex-shrink-0">✔</span>
                                 <span className="text-gray-700">{item}</span>
                             </li>
                         ))}
@@ -61,7 +61,7 @@ export default function MedicalSupplies() {
 
                 <p className="text-gray-700 leading-relaxed text-lg clear-left">
                     Check out what other medical supplies we are offering. Visit us at our pharmacy or
-                    call <strong className="text-sky-700">(205) 536-6014</strong> beforehand to check for availability.
+                    call <strong className="text-teal-700">(205) 536-6014</strong> beforehand to check for availability.
                 </p>
             </section>
         </div>
