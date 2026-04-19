@@ -65,47 +65,47 @@ export default function Home() {
             {/* Quick Action Cards */}
             <section className="bg-gradient-to-r from-teal-700 to-teal-600">
                 <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-4 gap-6">
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10 flex flex-col">
                         <h2 className="text-2xl font-bold mb-1">
                             Rx <span className="text-teal-200">Refills</span>
                         </h2>
-                        <p className="text-teal-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm flex-grow">
                             Rx refills make your life convenient with continuous medication supply.
                         </p>
-                        <Link href="/refill" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
+                        <Link href="/refill" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
                             Click Here »
                         </Link>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10 flex flex-col">
                         <h2 className="text-2xl font-bold mb-1">
                             Transfer <span className="text-teal-200">Prescription</span>
                         </h2>
-                        <p className="text-teal-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm flex-grow">
                             Transfer your prescriptions to Riverchase Pharmacy today!
                         </p>
-                        <Link href="/contact" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
+                        <Link href="/contact" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
                             Click Here »
                         </Link>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10 flex flex-col">
                         <h2 className="text-2xl font-bold mb-1">
                             Free Home <span className="text-teal-200">Delivery</span>
                         </h2>
-                        <p className="text-teal-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm flex-grow">
                             No time to visit our store for prescription pickup? No problem! We deliver.
                         </p>
-                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
+                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
                             Click Here »
                         </Link>
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-8 text-white text-center hover:bg-white/20 transition border border-white/10 flex flex-col">
                         <h2 className="text-2xl font-bold mb-1">
                             Express <span className="text-teal-200">Clinic</span>
                         </h2>
-                        <p className="text-teal-100 mb-4 text-sm">
+                        <p className="text-teal-100 mb-4 text-sm flex-grow">
                             Walk-in clinic on site for quick and convenient care.
                         </p>
-                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm">
+                        <Link href="/services" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
                             Click Here »
                         </Link>
                     </div>
