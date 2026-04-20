@@ -56,3 +56,58 @@ export async function sendRefillNotification(body: {
         })
     );
 }
+
+export async function sendTransferNotification(body: {
+    firstName: string;
+    lastName: string;
+    dateOfBirth: string;
+    phone: string;
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    pharmacyName: string;
+    pharmacyPhone: string;
+    transferAll: boolean;
+    medications?: string[];
+    rxNumbers?: string[];
+    notes?: string;
+}) {
+    const meds = body.transferAll
+        ? "  Transfer ALL prescriptions"
+        : (body.medications || [])
+              .map((m, i) => m ? `  ${i + 1}. ${m}${body.rxNumbers?.[i] ? ` (Rx# ${body.rxNumbers[i]})` : ""}` : null)
+              .filter(Boolean)
+              .join("\n") || "  None specified";
+
+    await ses.send(
+        new SendEmailCommand({
+            Source: process.env.SES_FROM_EMAIL!,
+            Destination: { ToAddresses: [process.env.PHARMACY_NOTIFY_EMAIL!] },
+            Message: {
+                Subject: { Data: `New Transfer Request – ${body.firstName} ${body.lastName}` },
+                Body: {
+                    Text: {
+                        Data: [
+                            `New prescription transfer request received.`,
+                            ``,
+                            `Patient: ${body.firstName} ${body.lastName}`,
+                            `DOB: ${body.dateOfBirth}`,
+                            `Phone: ${body.phone}`,
+                            `Address: ${body.address}, ${body.city}, ${body.state} ${body.zip}`,
+                            ``,
+                            `Current Pharmacy: ${body.pharmacyName}`,
+                            `Pharmacy Phone: ${body.pharmacyPhone}`,
+                            ``,
+                            `Prescriptions:`,
+                            meds,
+                            body.notes ? `\nNotes: ${body.notes}` : null,
+                        ]
+                            .filter(Boolean)
+                            .join("\n"),
+                    },
+                },
+            },
+        })
+    );
+}

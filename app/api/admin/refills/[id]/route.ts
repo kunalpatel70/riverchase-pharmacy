@@ -11,16 +11,19 @@ export async function PATCH(
 
     const { id } = await params;
     const body = await req.json();
-
-    const { data, errors } = await client.models.RefillRequest.update({
+    const updates = {
         id,
         ...(body.status && { status: body.status }),
         ...(body.pharmacistNotes !== undefined && { pharmacistNotes: body.pharmacistNotes }),
-    });
+    };
 
-    if (errors) {
-        return NextResponse.json({ error: errors }, { status: 500 });
+    const result = body.type === "transfer"
+        ? await client.models.TransferRequest.update(updates)
+        : await client.models.RefillRequest.update(updates);
+
+    if (result.errors) {
+        return NextResponse.json({ error: result.errors }, { status: 500 });
     }
 
-    return NextResponse.json({ data });
+    return NextResponse.json({ data: result.data });
 }

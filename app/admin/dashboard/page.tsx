@@ -3,17 +3,26 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-type RefillRequest = {
+type RequestItem = {
     id: string;
+    type: "refill" | "transfer";
     firstName: string;
     lastName: string;
     phone: string;
     email?: string;
     dateOfBirth: string;
-    rxNumbers: string[];
-    pickupMethod: string;
+    rxNumbers?: string[];
+    pickupMethod?: string;
     deliveryAddress?: string;
     preferredTime?: string;
+    pharmacyName?: string;
+    pharmacyPhone?: string;
+    transferAll?: boolean;
+    medications?: string[];
+    address?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
     notes?: string;
     status: string;
     pharmacistNotes?: string;
@@ -43,7 +52,7 @@ const NEXT_ACTIONS: Record<string, { label: string; to: string }[]> = {
 };
 
 export default function AdminDashboard() {
-    const [refills, setRefills] = useState<RefillRequest[]>([]);
+    const [refills, setRefills] = useState<RequestItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<string>("active");
     const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -66,12 +75,12 @@ export default function AdminDashboard() {
         fetchRefills();
     }, []);
 
-    const updateRefill = async (id: string, status?: string, pharmacistNotes?: string) => {
+    const updateRefill = async (id: string, type: string, status?: string, pharmacistNotes?: string) => {
         setUpdating(id);
         await fetch(`/api/admin/refills/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status, pharmacistNotes }),
+            body: JSON.stringify({ type, status, pharmacistNotes }),
         });
         await fetchRefills();
         setUpdating(null);
@@ -101,7 +110,7 @@ export default function AdminDashboard() {
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">Refill Requests</h1>
+                    <h1 className="text-3xl font-bold text-gray-900">Requests</h1>
                     <p className="text-gray-500 mt-1">{refills.length} total requests</p>
                 </div>
                 <button
@@ -156,8 +165,8 @@ export default function AdminDashboard() {
                         <thead className="bg-gray-50 border-b">
                             <tr>
                                 <th className="text-left px-4 py-3 font-semibold text-gray-600">Patient</th>
-                                <th className="text-left px-4 py-3 font-semibold text-gray-600">Rx #</th>
-                                <th className="text-left px-4 py-3 font-semibold text-gray-600">Pickup</th>
+                                <th className="text-left px-4 py-3 font-semibold text-gray-600">Type</th>
+                                <th className="text-left px-4 py-3 font-semibold text-gray-600">Details</th>
                                 <th className="text-left px-4 py-3 font-semibold text-gray-600">Status</th>
                                 <th className="text-left px-4 py-3 font-semibold text-gray-600">Submitted</th>
                                 <th className="text-left px-4 py-3 font-semibold text-gray-600">Actions</th>
@@ -178,10 +187,20 @@ export default function AdminDashboard() {
                                             <div className="text-xs text-gray-500">{r.phone}</div>
                                         </button>
                                     </td>
-                                    <td className="px-4 py-3 text-gray-700">
-                                        {r.rxNumbers?.join(", ")}
+                                    <td className="px-4 py-3">
+                                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                                            r.type === "transfer"
+                                                ? "bg-purple-100 text-purple-800"
+                                                : "bg-teal-100 text-teal-800"
+                                        }`}>
+                                            {r.type}
+                                        </span>
                                     </td>
-                                    <td className="px-4 py-3 text-gray-700 capitalize">{r.pickupMethod}</td>
+                                    <td className="px-4 py-3 text-gray-700 text-xs">
+                                        {r.type === "transfer"
+                                            ? r.transferAll ? "Transfer all" : r.medications?.filter(Boolean).join(", ") || "—"
+                                            : r.rxNumbers?.join(", ")}
+                                    </td>
                                     <td className="px-4 py-3">
                                         <span className={`px-2 py-1 rounded-full text-xs font-semibold ${STATUS_COLORS[r.status] ?? ""}`}>
                                             {r.status}
@@ -201,7 +220,7 @@ export default function AdminDashboard() {
                                                 <button
                                                     key={action.to}
                                                     disabled={updating === r.id}
-                                                    onClick={() => updateRefill(r.id, action.to)}
+                                                    onClick={() => updateRefill(r.id, r.type, action.to)}
                                                     className={`px-3 py-1 rounded text-xs font-semibold transition disabled:opacity-50 ${
                                                         action.to === "rejected"
                                                             ? "bg-red-50 text-red-700 hover:bg-red-100"
@@ -223,14 +242,23 @@ export default function AdminDashboard() {
                                             <div className="grid md:grid-cols-2 gap-6 text-sm">
                                                 <div className="space-y-2">
                                                     <Detail label="DOB" value={r.dateOfBirth} />
-                                                    <Detail label="Email" value={r.email || "—"} />
-                                                    <Detail label="Rx Numbers" value={r.rxNumbers?.join(", ")} />
-                                                    <Detail label="Pickup" value={r.pickupMethod} />
-                                                    {r.deliveryAddress && (
-                                                        <Detail label="Delivery Address" value={r.deliveryAddress} />
-                                                    )}
-                                                    {r.preferredTime && (
-                                                        <Detail label="Preferred Time" value={r.preferredTime} />
+                                                    {r.type === "refill" ? (
+                                                        <>
+                                                            <Detail label="Email" value={r.email || "—"} />
+                                                            <Detail label="Rx Numbers" value={r.rxNumbers?.join(", ") || "—"} />
+                                                            <Detail label="Pickup" value={r.pickupMethod || "—"} />
+                                                            {r.deliveryAddress && <Detail label="Delivery Address" value={r.deliveryAddress} />}
+                                                            {r.preferredTime && <Detail label="Preferred Time" value={r.preferredTime} />}
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <Detail label="Address" value={`${r.address}, ${r.city}, ${r.state} ${r.zip}`} />
+                                                            <Detail label="From Pharmacy" value={`${r.pharmacyName} — ${r.pharmacyPhone}`} />
+                                                            <Detail label="Transfer All" value={r.transferAll ? "Yes" : "No"} />
+                                                            {!r.transferAll && r.medications?.filter(Boolean).length ? (
+                                                                <Detail label="Medications" value={r.medications.filter(Boolean).map((m, i) => `${m}${r.rxNumbers?.[i] ? ` (Rx# ${r.rxNumbers[i]})` : ""}`).join(", ")} />
+                                                            ) : null}
+                                                        </>
                                                     )}
                                                     {r.notes && <Detail label="Patient Notes" value={r.notes} />}
                                                 </div>
@@ -249,7 +277,7 @@ export default function AdminDashboard() {
                                                     />
                                                     <button
                                                         disabled={updating === r.id}
-                                                        onClick={() => updateRefill(r.id, undefined, notesInput[r.id])}
+                                                        onClick={() => updateRefill(r.id, r.type, undefined, notesInput[r.id])}
                                                         className="mt-2 bg-sky-700 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-sky-800 transition disabled:opacity-50"
                                                     >
                                                         Save Notes

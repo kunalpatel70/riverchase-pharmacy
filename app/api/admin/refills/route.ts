@@ -6,18 +6,19 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { data, errors } = await client.models.RefillRequest.list({
-        limit: 200,
-    });
+    const [refills, transfers] = await Promise.all([
+        client.models.RefillRequest.list({ limit: 200 }),
+        client.models.TransferRequest.list({ limit: 200 }),
+    ]);
 
-    if (errors) {
-        return NextResponse.json({ error: errors }, { status: 500 });
+    if (refills.errors || transfers.errors) {
+        return NextResponse.json({ error: refills.errors || transfers.errors }, { status: 500 });
     }
 
-    // Sort by createdAt descending (newest first)
-    const sorted = (data ?? []).sort(
-        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    const combined = [
+        ...(refills.data ?? []).map((r) => ({ ...r, type: "refill" as const })),
+        ...(transfers.data ?? []).map((r) => ({ ...r, type: "transfer" as const })),
+    ].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-    return NextResponse.json({ data: sorted });
+    return NextResponse.json({ data: combined });
 }

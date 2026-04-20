@@ -83,7 +83,7 @@ export default function Home() {
                         <p className="text-teal-100 mb-4 text-sm flex-grow">
                             Transfer your prescriptions to Riverchase Pharmacy today!
                         </p>
-                        <Link href="/contact" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
+                        <Link href="/transfer" className="inline-block border-2 border-white text-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-teal-700 transition text-sm mt-auto">
                             Click Here »
                         </Link>
                     </div>
