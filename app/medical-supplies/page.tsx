@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
     title: "Medical Supplies",
@@ -16,53 +18,89 @@ const supplies = [
     "Bath safety equipment",
     "Shower benches",
     "Chair lifts",
-    "Compressors and nebulizers",
+    "Compressors & nebulizers",
     "Compression stockings",
     "Wound care supplies",
     "Ostomy supplies",
-    "And so much more…",
 ];
 
 export default function MedicalSupplies() {
     return (
         <div>
-            {/* Hero Section */}
-            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Medical Supplies</h1>
+            {/* Page head */}
+            <section className="bg-cream hairline-b">
+                <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-16 grid lg:grid-cols-12 gap-10 items-end rise-in">
+                    <div className="lg:col-span-7">
+                        <p className="eyebrow kicker-rule mb-5">Medical supplies</p>
+                        <h1 className="display-xl text-ink">Durable equipment, properly fitted — and available in person.</h1>
+                    </div>
+                    <div className="lg:col-span-4 lg:col-start-9">
+                        <p className="text-ink-soft text-lg leading-relaxed">
+                            Trusted brands for daily mobility, recovery, and at-home care — with
+                            staff who&apos;ll help you choose the right one.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            {/* Main Content */}
-            <section className="max-w-5xl mx-auto py-16 px-6">
-                <div className="mb-10">
-                    <Image
-                        src="/medical-supplies-thumb.jpg"
-                        alt="Wheelchair"
-                        width={280}
-                        height={275}
-                        className="rounded-lg object-cover float-left mr-8 mb-4"
-                    />
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                        We take pride in the durability of the medical supplies that are obtainable at Riverchase
-                        Pharmacy. We have the best brands of medical equipment that you can use at home for your
-                        specific situation. Our medical supplies include, but are not limited to:
-                    </p>
+            {/* Main */}
+            <section className="bg-cream">
+                <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10 lg:gap-14">
+                    <div className="lg:col-span-5">
+                        <div className="relative aspect-[4/5] max-w-md">
+                            <Image
+                                src="/medical-supplies-thumb.jpg"
+                                alt="Medical supplies — wheelchair"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 40vw"
+                                className="object-cover rounded-sm"
+                            />
+                            <div className="absolute inset-0 ring-1 ring-rule rounded-sm pointer-events-none" />
+                        </div>
+                    </div>
 
-                    <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
-                        {supplies.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                                <span className="text-teal-700 mt-0.5 flex-shrink-0">✔</span>
-                                <span className="text-gray-700">{item}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="lg:col-span-7">
+                        <p className="text-ink-soft text-[1.05rem] leading-[1.75] max-w-[62ch]">
+                            We take pride in the durability of the medical supplies available at
+                            Riverchase Pharmacy. We carry the best brands of at-home medical
+                            equipment — and our staff will help you choose and fit what you need.
+                        </p>
+
+                        <ul className="mt-10 grid sm:grid-cols-2 gap-px bg-[var(--rule)] hairline-t hairline-b">
+                            {supplies.map((item, i) => (
+                                <li key={item} className="bg-cream px-5 py-4 flex items-center gap-4">
+                                    <span className="font-display text-xs text-ink-mute tabular-nums">
+                                        {String(i + 1).padStart(2, "0")}
+                                    </span>
+                                    <span className="text-ink">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <p className="mt-8 text-ink-soft">
+                            &hellip;and much more. Supplies rotate — call ahead to confirm
+                            availability of a specific item.
+                        </p>
+                    </div>
                 </div>
+            </section>
 
-                <p className="text-gray-700 leading-relaxed text-lg clear-left">
-                    Check out what other medical supplies we are offering. Visit us at our pharmacy or
-                    call <strong className="text-teal-700">(205) 536-6014</strong> beforehand to check for availability.
-                </p>
+            {/* CTA */}
+            <section className="bg-paper hairline-t">
+                <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                    <p className="font-display text-2xl md:text-3xl text-ink max-w-xl">
+                        Call <a href="tel:2055366014" className="link-underline tabular-nums">(205) 536-6014</a> to check availability — or stop in.
+                    </p>
+                    <div className="flex gap-3">
+                        <Link href="/contact" className="btn btn-primary">
+                            Directions & hours
+                            <ArrowRightIcon className="w-4 h-4" />
+                        </Link>
+                        <Link href="/services" className="btn btn-ghost">
+                            Other services
+                        </Link>
+                    </div>
+                </div>
             </section>
         </div>
     );

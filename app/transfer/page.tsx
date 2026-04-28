@@ -1,22 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const RX_COUNT = 5;
 
 export default function TransferPage() {
     const [form, setForm] = useState({
-        firstName: "",
-        lastName: "",
-        dateOfBirth: "",
-        phone: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: "",
-        pharmacyName: "",
-        pharmacyPhone: "",
+        firstName: "", lastName: "", dateOfBirth: "", phone: "",
+        address: "", city: "", state: "", zip: "",
+        pharmacyName: "", pharmacyPhone: "",
         transferAll: false,
         medications: Array(RX_COUNT).fill(""),
         rxNumbers: Array(RX_COUNT).fill(""),
@@ -26,8 +21,9 @@ export default function TransferPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const handleChange = (e: any) => {
-        const { name, value, type, checked } = e.target;
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const target = e.target as HTMLInputElement;
+        const { name, value, type, checked } = target;
         setForm({ ...form, [name]: type === "checkbox" ? checked : value });
     };
 
@@ -37,7 +33,7 @@ export default function TransferPage() {
         setForm({ ...form, [field]: updated });
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
 
@@ -60,39 +56,30 @@ export default function TransferPage() {
 
     if (submitted) {
         return (
-            <div className="min-h-screen bg-gradient-to-b from-gray-50 to-teal-50/20 py-16 px-6">
+            <div className="bg-cream min-h-[70vh] py-20 px-6">
                 <div className="max-w-2xl mx-auto">
-                    <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
-                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <CheckCircleIcon className="w-12 h-12 text-green-600" />
-                        </div>
-                        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-                            Transfer Request Submitted!
+                    <div className="surface-panel bg-cream p-8 md:p-12">
+                        <CheckCircleIcon className="w-10 h-10 text-sage" />
+                        <p className="eyebrow mt-5">Received</p>
+                        <h1 className="display-md text-ink mt-3">
+                            Thanks, {form.firstName || "there"}. Your transfer is in motion.
                         </h1>
-                        <p className="text-lg text-gray-700 mb-6">
-                            Thank you, {form.firstName}! We've received your prescription transfer request.
-                        </p>
-                        <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-8 text-left">
-                            <h3 className="font-semibold text-gray-900 mb-3">What happens next?</h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li className="flex items-start gap-2">
-                                    <span className="text-teal-700 font-bold">1.</span>
-                                    <span>Our pharmacist will contact your current pharmacy to initiate the transfer</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="text-teal-700 font-bold">2.</span>
-                                    <span>You'll receive a confirmation call at {form.phone}</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="text-teal-700 font-bold">3.</span>
-                                    <span>Your prescriptions will be ready at Riverchase Pharmacy</span>
-                                </li>
-                            </ul>
+                        <div className="mt-8 hairline-t pt-6 space-y-3 text-ink-soft">
+                            <div className="flex gap-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">01</span>
+                                <span>Our pharmacist will contact your current pharmacy to initiate the transfer.</span>
+                            </div>
+                            <div className="flex gap-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">02</span>
+                                <span>You&apos;ll receive a confirmation call at <span className="text-ink tabular-nums">{form.phone}</span>.</span>
+                            </div>
+                            <div className="flex gap-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">03</span>
+                                <span>Your prescriptions will be ready at Riverchase — pickup or free delivery.</span>
+                            </div>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="/" className="btn-secondary">
-                                Return Home
-                            </a>
+                        <div className="mt-10">
+                            <Link href="/" className="btn btn-primary">Back home</Link>
                         </div>
                     </div>
                 </div>
@@ -101,225 +88,217 @@ export default function TransferPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-teal-50/20 py-12 px-6">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-3">
-                        Transfer Your Prescriptions
-                    </h1>
-                    <p className="text-lg text-gray-600">
-                        Fill out the form below and we'll handle the rest
-                    </p>
-                </div>
-
-                <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-8">
-                    <p className="text-sm text-teal-900">
-                        <span className="font-semibold">Easy transfer:</span> We'll contact your current pharmacy directly to transfer your prescriptions.
-                    </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 md:p-10 space-y-8">
-                    {/* Patient Information */}
-                    <section>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-200">
-                            Patient Information
-                        </h2>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    First Name <span className="text-red-500">*</span>
-                                </label>
-                                <input name="firstName" required value={form.firstName} onChange={handleChange} className="input" placeholder="John" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Last Name <span className="text-red-500">*</span>
-                                </label>
-                                <input name="lastName" required value={form.lastName} onChange={handleChange} className="input" placeholder="Doe" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Date of Birth <span className="text-red-500">*</span>
-                                </label>
-                                <input name="dateOfBirth" type="date" required value={form.dateOfBirth} onChange={handleChange} className="input" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Phone Number <span className="text-red-500">*</span>
-                                </label>
-                                <input name="phone" type="tel" required value={form.phone} onChange={handleChange} className="input" placeholder="(205) 555-0000" />
-                            </div>
-                            <div className="md:col-span-2">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Address <span className="text-red-500">*</span>
-                                </label>
-                                <input name="address" required value={form.address} onChange={handleChange} className="input" placeholder="123 Main St" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    City <span className="text-red-500">*</span>
-                                </label>
-                                <input name="city" required value={form.city} onChange={handleChange} className="input" placeholder="Hoover" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        State <span className="text-red-500">*</span>
-                                    </label>
-                                    <input name="state" required value={form.state} onChange={handleChange} className="input" placeholder="AL" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Zip Code <span className="text-red-500">*</span>
-                                    </label>
-                                    <input name="zip" required value={form.zip} onChange={handleChange} className="input" placeholder="35244" />
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Current Pharmacy */}
-                    <section>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-200">
-                            Current Pharmacy Information
-                        </h2>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Pharmacy Name <span className="text-red-500">*</span>
-                                </label>
-                                <input name="pharmacyName" required value={form.pharmacyName} onChange={handleChange} className="input" placeholder="Current pharmacy name" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Pharmacy Phone <span className="text-red-500">*</span>
-                                </label>
-                                <input name="pharmacyPhone" type="tel" required value={form.pharmacyPhone} onChange={handleChange} className="input" placeholder="(205) 555-0000" />
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Prescriptions to Transfer */}
-                    <section>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-200">
-                            Prescriptions to be Transferred
-                        </h2>
-
-                        <p className="text-sm text-gray-600 mb-4">
-                            If you would like to transfer all prescriptions, simply check the box below.
+        <div>
+            {/* Page head */}
+            <section className="bg-cream hairline-b">
+                <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-16 grid lg:grid-cols-12 gap-10 items-end rise-in">
+                    <div className="lg:col-span-7">
+                        <p className="eyebrow kicker-rule mb-5">Transfer a prescription</p>
+                        <h1 className="display-xl text-ink">We&apos;ll handle the handoff.</h1>
+                    </div>
+                    <div className="lg:col-span-4 lg:col-start-9">
+                        <p className="text-ink-soft text-lg leading-relaxed">
+                            Fill this out and we&apos;ll call your current pharmacy directly — no
+                            awkward phone calls, no paperwork on your end.
                         </p>
+                    </div>
+                </div>
+            </section>
 
-                        <label className="flex items-center gap-3 mb-6 cursor-pointer">
-                            <input
-                                type="checkbox"
-                                name="transferAll"
-                                checked={form.transferAll}
-                                onChange={handleChange}
-                                className="w-5 h-5 rounded border-gray-300 text-teal-700 focus:ring-teal-500"
-                            />
-                            <span className="font-semibold text-gray-900">Transfer all my prescriptions</span>
-                        </label>
-
-                        {!form.transferAll && (
-                            <>
-                                <p className="text-sm text-gray-600 mb-4">
-                                    If you would like to selectively transfer your prescriptions, list them below.
-                                </p>
-
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-sm">
-                                        <thead>
-                                            <tr className="text-left text-gray-700 font-semibold border-b-2 border-gray-200">
-                                                <th className="pb-3 pr-4 w-8"></th>
-                                                <th className="pb-3 pr-4">Medication Name</th>
-                                                <th className="pb-3">Rx # from Current Pharmacy</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {Array.from({ length: RX_COUNT }).map((_, i) => (
-                                                <tr key={i} className="border-b border-gray-100">
-                                                    <td className="py-3 pr-4 font-semibold text-gray-500">Rx{i + 1}</td>
-                                                    <td className="py-3 pr-4">
-                                                        <input
-                                                            className="input"
-                                                            placeholder="Enter medication name"
-                                                            value={form.medications[i]}
-                                                            onChange={(e) => handleArrayChange("medications", i, e.target.value)}
-                                                        />
-                                                    </td>
-                                                    <td className="py-3">
-                                                        <input
-                                                            className="input"
-                                                            placeholder="Rx #"
-                                                            value={form.rxNumbers[i]}
-                                                            onChange={(e) => handleArrayChange("rxNumbers", i, e.target.value)}
-                                                        />
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+            {/* Form */}
+            <section className="bg-cream">
+                <div className="max-w-4xl mx-auto px-6 py-16">
+                    <form onSubmit={handleSubmit} className="space-y-14">
+                        {/* Patient */}
+                        <section>
+                            <div className="flex items-baseline gap-4 mb-8 hairline-b pb-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">01</span>
+                                <h2 className="font-display text-2xl text-ink">Patient information</h2>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <Field label="First name" required>
+                                    <input name="firstName" required value={form.firstName} onChange={handleChange} className="input" placeholder="Jane" />
+                                </Field>
+                                <Field label="Last name" required>
+                                    <input name="lastName" required value={form.lastName} onChange={handleChange} className="input" placeholder="Doe" />
+                                </Field>
+                                <Field label="Date of birth" required>
+                                    <input name="dateOfBirth" type="date" required value={form.dateOfBirth} onChange={handleChange} className="input" />
+                                </Field>
+                                <Field label="Phone" required>
+                                    <input name="phone" type="tel" required value={form.phone} onChange={handleChange} className="input" placeholder="(205) 555-0000" />
+                                </Field>
+                                <div className="md:col-span-2">
+                                    <Field label="Address" required>
+                                        <input name="address" required value={form.address} onChange={handleChange} className="input" placeholder="123 Main St" />
+                                    </Field>
                                 </div>
-                            </>
-                        )}
-                    </section>
+                                <Field label="City" required>
+                                    <input name="city" required value={form.city} onChange={handleChange} className="input" placeholder="Hoover" />
+                                </Field>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <Field label="State" required>
+                                        <input name="state" required value={form.state} onChange={handleChange} className="input" placeholder="AL" />
+                                    </Field>
+                                    <Field label="Zip" required>
+                                        <input name="zip" required value={form.zip} onChange={handleChange} className="input" placeholder="35244" />
+                                    </Field>
+                                </div>
+                            </div>
+                        </section>
 
-                    {/* Additional Notes */}
-                    <section>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-gray-200">
-                            Additional Information
-                        </h2>
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                Special Instructions or Notes
+                        {/* Current pharmacy */}
+                        <section>
+                            <div className="flex items-baseline gap-4 mb-8 hairline-b pb-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">02</span>
+                                <h2 className="font-display text-2xl text-ink">Your current pharmacy</h2>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <Field label="Pharmacy name" required>
+                                    <input name="pharmacyName" required value={form.pharmacyName} onChange={handleChange} className="input" placeholder="Current pharmacy name" />
+                                </Field>
+                                <Field label="Pharmacy phone" required>
+                                    <input name="pharmacyPhone" type="tel" required value={form.pharmacyPhone} onChange={handleChange} className="input" placeholder="(205) 555-0000" />
+                                </Field>
+                            </div>
+                        </section>
+
+                        {/* Prescriptions */}
+                        <section>
+                            <div className="flex items-baseline gap-4 mb-8 hairline-b pb-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">03</span>
+                                <h2 className="font-display text-2xl text-ink">Prescriptions to transfer</h2>
+                            </div>
+
+                            <label className="flex items-center gap-3 mb-8 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    name="transferAll"
+                                    checked={form.transferAll}
+                                    onChange={handleChange}
+                                    className="w-4 h-4 accent-[var(--ink)]"
+                                />
+                                <span className="text-ink">Transfer <em className="italic">all</em> my prescriptions.</span>
                             </label>
-                            <textarea
-                                name="notes"
-                                value={form.notes}
-                                onChange={handleChange}
-                                rows={4}
-                                className="input resize-none"
-                                placeholder="Any special instructions, questions, or concerns? (Optional)"
-                            />
-                        </div>
-                    </section>
 
-                    {/* Submit */}
-                    <div className="pt-6 border-t-2 border-gray-200">
-                        <button type="submit" disabled={loading} className="btn-secondary w-full text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed">
-                            {loading ? (
-                                <span className="flex items-center justify-center gap-3">
-                                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                                    </svg>
-                                    Processing...
-                                </span>
-                            ) : (
-                                "Submit Transfer Request"
+                            {!form.transferAll && (
+                                <div className="space-y-3">
+                                    <p className="text-sm text-ink-soft">
+                                        Otherwise, list each medication you&apos;d like to move.
+                                    </p>
+                                    <div className="grid grid-cols-[auto_1fr_1fr] gap-3 items-center text-xs uppercase tracking-[0.14em] text-ink-mute pb-2 hairline-b">
+                                        <span className="w-12 text-center">Rx</span>
+                                        <span>Medication</span>
+                                        <span>Rx #</span>
+                                    </div>
+                                    {Array.from({ length: RX_COUNT }).map((_, i) => (
+                                        <div key={i} className="grid grid-cols-[auto_1fr_1fr] gap-3 items-center">
+                                            <span className="font-display text-sm text-ink-mute tabular-nums w-12 text-center">
+                                                {String(i + 1).padStart(2, "0")}
+                                            </span>
+                                            <input
+                                                className="input"
+                                                placeholder="Medication name"
+                                                value={form.medications[i]}
+                                                onChange={(e) => handleArrayChange("medications", i, e.target.value)}
+                                            />
+                                            <input
+                                                className="input"
+                                                placeholder="Rx #"
+                                                value={form.rxNumbers[i]}
+                                                onChange={(e) => handleArrayChange("rxNumbers", i, e.target.value)}
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
                             )}
-                        </button>
-                        <p className="text-center text-sm text-gray-600 mt-4">
-                            By submitting, you agree to our terms and privacy policy
-                        </p>
-                    </div>
-                </form>
+                        </section>
 
-                <div className="mt-8 bg-white rounded-lg shadow p-6">
-                    <h3 className="font-bold text-lg text-gray-900 mb-3">Need Help?</h3>
-                    <p className="text-gray-700 mb-4">
-                        If you have questions or need assistance with your transfer request, please contact us:
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:2055366014" className="text-teal-700 hover:text-teal-800 font-semibold">
-                            📞 (205) 536-6014
-                        </a>
-                        <a href="mailto:riverchasepharmacy@gmail.com" className="text-teal-700 hover:text-teal-800 font-semibold">
-                            ✉️ riverchasepharmacy@gmail.com
-                        </a>
+                        {/* Notes */}
+                        <section>
+                            <div className="flex items-baseline gap-4 mb-8 hairline-b pb-4">
+                                <span className="font-display text-sm text-ink-mute tabular-nums">04</span>
+                                <h2 className="font-display text-2xl text-ink">Anything else?</h2>
+                            </div>
+                            <Field label="Special instructions (optional)">
+                                <textarea
+                                    name="notes"
+                                    value={form.notes}
+                                    onChange={handleChange}
+                                    rows={4}
+                                    className="input resize-none"
+                                    placeholder="Allergies, questions, or notes for the pharmacist."
+                                />
+                            </Field>
+                        </section>
+
+                        {/* Submit */}
+                        <div className="hairline-t pt-8">
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="btn btn-primary w-full py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {loading ? (
+                                    <span className="flex items-center gap-3">
+                                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                        </svg>
+                                        Submitting…
+                                    </span>
+                                ) : (
+                                    <>
+                                        Submit transfer request
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </>
+                                )}
+                            </button>
+                            <p className="text-center text-xs text-ink-mute mt-4">
+                                By submitting, you agree to our terms and privacy policy.
+                            </p>
+                        </div>
+                    </form>
+
+                    {/* Help */}
+                    <div className="mt-16 hairline-t pt-8">
+                        <p className="eyebrow mb-4">Need a hand?</p>
+                        <p className="text-ink-soft mb-5 max-w-lg">
+                            Our team is happy to help. Call or email — we&apos;ll pick up.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-6">
+                            <a href="tel:2055366014" className="link-underline inline-flex items-center gap-2 text-ink">
+                                <PhoneIcon className="w-4 h-4 text-sage" />
+                                <span className="tabular-nums">(205) 536-6014</span>
+                            </a>
+                            <a href="mailto:riverchasepharmacy@gmail.com" className="link-underline inline-flex items-center gap-2 text-ink">
+                                <EnvelopeIcon className="w-4 h-4 text-sage" />
+                                riverchasepharmacy@gmail.com
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+        </div>
+    );
+}
+
+function Field({
+    label,
+    required,
+    children,
+}: {
+    label: string;
+    required?: boolean;
+    children: React.ReactNode;
+}) {
+    return (
+        <div>
+            <label className="block text-xs uppercase tracking-[0.14em] text-ink-soft mb-2">
+                {label}
+                {required && <span style={{ color: "var(--terracotta)" }}> *</span>}
+            </label>
+            {children}
         </div>
     );
 }

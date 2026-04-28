@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
     title: "About Us",
@@ -8,75 +9,123 @@ export const metadata: Metadata = {
         "Learn about Riverchase Pharmacy in Hoover, Alabama. Established with the health of the entire family in mind, our licensed pharmacists provide quality care and products.",
 };
 
+const values = [
+    {
+        no: "01",
+        title: "Person-first",
+        desc: "Every customer is known by name. We remember your medications, your allergies, and the questions you asked last time.",
+    },
+    {
+        no: "02",
+        title: "Independent",
+        desc: "No corporate quotas. Our pharmacists make recommendations based on what actually helps — not what sells.",
+    },
+    {
+        no: "03",
+        title: "Community",
+        desc: "We've chosen to be your neighborhood pharmacy, and that means being available for a five-minute conversation about a real concern.",
+    },
+];
+
 export default function About() {
     return (
         <div>
-            {/* Hero Section */}
-            <section className="bg-gradient-to-br from-teal-700 to-emerald-600 text-white py-20">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
+            {/* Page head */}
+            <section className="bg-cream hairline-b">
+                <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-16 grid lg:grid-cols-12 gap-10 items-end rise-in">
+                    <div className="lg:col-span-7">
+                        <p className="eyebrow kicker-rule mb-5">About</p>
+                        <h1 className="display-xl text-ink">A pharmacy that cares for you and your family.</h1>
+                    </div>
+                    <div className="lg:col-span-4 lg:col-start-9">
+                        <p className="text-ink-soft text-lg leading-relaxed">
+                            Established with the health of the entire family in mind — because one
+                            healthy person changes the health of everyone around them.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            {/* Main Content */}
-            <section className="max-w-5xl mx-auto py-16 px-6">
-                <div className="md:flex gap-8 mb-10">
-                    <div className="md:w-1/3 mb-6 md:mb-0 flex-shrink-0">
-                        <Image
-                            src="/about-thumb.jpg"
-                            alt="Pharmacist and customer smiling"
-                            width={300}
-                            height={200}
-                            className="rounded-lg object-cover w-full"
-                        />
+            {/* Main content */}
+            <section className="bg-cream">
+                <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10 lg:gap-14">
+                    <div className="lg:col-span-5">
+                        <div className="relative aspect-[4/5] w-full max-w-md">
+                            <Image
+                                src="/about-thumb.jpg"
+                                alt="Pharmacist and customer smiling"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 40vw"
+                                className="object-cover rounded-sm"
+                            />
+                            <div className="absolute inset-0 ring-1 ring-rule rounded-sm pointer-events-none" />
+                        </div>
                     </div>
+                    <div className="lg:col-span-7 space-y-5 text-ink-soft text-[1.05rem] leading-[1.75] max-w-[62ch]">
+                        <p>
+                            Riverchase Pharmacy was established with the health of the entire family
+                            in mind. We understand how great an impact a healthy person has on the
+                            well-being of their entire family.
+                        </p>
+                        <p>
+                            We provide health products and programs designed to help you look after
+                            your own health as well as that of your loved ones. Every product on our
+                            shelves is thoroughly checked, and every service we render aligns with a
+                            code of professional ethics and the highest pharmacy standards.
+                        </p>
+                        <p>
+                            Our pharmacists are licensed, experienced, and qualified to assist you —
+                            whether you need a five-minute answer or a thirty-minute conversation
+                            about a new diagnosis.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Mission pull-quote */}
+            <section className="bg-paper hairline-t hairline-b">
+                <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-12 gap-10">
+                    <div className="lg:col-span-3">
+                        <p className="eyebrow kicker-rule">Our mission</p>
+                    </div>
+                    <blockquote className="lg:col-span-8 lg:col-start-5">
+                        <p className="font-display text-2xl md:text-[2.1rem] leading-[1.25] text-ink">
+                            &ldquo;To promote a thriving community by ensuring the good health of its
+                            families — offering a complete line of pharmacy products and a full range
+                            of services that address each member&apos;s specific needs.&rdquo;
+                        </p>
+                    </blockquote>
+                </div>
+            </section>
+
+            {/* Values */}
+            <section className="bg-cream">
+                <div className="max-w-7xl mx-auto px-6 py-20">
+                    <p className="eyebrow kicker-rule mb-6">What we stand for</p>
+                    <div className="grid md:grid-cols-3 gap-px bg-[var(--rule)] hairline-t hairline-b">
+                        {values.map((v) => (
+                            <div key={v.no} className="bg-cream p-7">
+                                <div className="font-display text-sm text-ink-mute tabular-nums">{v.no}</div>
+                                <h3 className="mt-5 font-display text-[1.45rem] font-medium text-ink">{v.title}</h3>
+                                <p className="mt-2 text-ink-soft text-[0.95rem] leading-relaxed">{v.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Contact CTA */}
+            <section className="bg-paper hairline-t">
+                <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                     <div>
-                        <p className="text-teal-700 italic text-lg mb-4">
-                            A Pharmacy That Cares for You and Your Family!
-                        </p>
-                        <p className="text-gray-700 leading-relaxed mb-4">
-                            Riverchase Pharmacy is established with the health of the entire family in mind. We
-                            understand how great the impact of a healthy person is in ensuring the good health of his or
-                            her entire family.
-                        </p>
-                        <p className="text-gray-700 leading-relaxed mb-4">
-                            We provide health products and programs that will help you ensure your own health as well as
-                            that of your loved ones. Every product that you see and buy in our store is thoroughly checked
-                            so that each customer can be safe while looking after their health. At the same time, every
-                            service we render is in line with a code of professional and moral ethics and worldwide
-                            pharmacy standards.
-                        </p>
-                        <p className="text-gray-700 leading-relaxed">
-                            Our pharmacists are licensed, experienced and qualified to assist you in your and your
-                            family&apos;s journey towards maintaining good health.
+                        <p className="eyebrow mb-3">Questions?</p>
+                        <p className="font-display text-2xl md:text-3xl text-ink max-w-xl">
+                            Call us at <a href="tel:2055366014" className="link-underline tabular-nums">(205) 536-6014</a> — or drop by and say hello.
                         </p>
                     </div>
-                </div>
-
-                {/* Mission */}
-                <div className="bg-teal-50 border-l-4 border-teal-700 rounded-r-lg p-6 mb-10">
-                    <h2 className="text-xl font-bold text-gray-900 mb-2">
-                        <u>Mission</u>
-                    </h2>
-                    <p className="text-gray-700 leading-relaxed">
-                        It is the mission of Riverchase Pharmacy to promote a thriving community by ensuring the good
-                        health of its families. We can make this mission possible by providing a wide array of pharmacy
-                        services and a complete line of pharmacy products that will cater to each member&apos;s specific
-                        health needs.
-                    </p>
-                </div>
-
-                <p className="text-gray-700 leading-relaxed text-lg">
-                    Visit our pharmacy to find out how we can assist you with your pharmacy needs. You may also call us
-                    at <strong className="text-teal-700">(205) 536-6014</strong> for further inquiries.
-                </p>
-
-                <div className="mt-8">
-                    <Link
-                        href="/contact"
-                        className="inline-block bg-teal-700 text-white px-8 py-3 rounded font-semibold hover:bg-teal-800 transition"
-                    >
-                        Contact Us
+                    <Link href="/contact" className="btn btn-primary shrink-0">
+                        Get in touch
+                        <ArrowRightIcon className="w-4 h-4" />
                     </Link>
                 </div>
             </section>

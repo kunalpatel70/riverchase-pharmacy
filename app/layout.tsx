@@ -1,8 +1,23 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Fraunces, Instrument_Sans } from 'next/font/google'
 
 import type { Metadata } from 'next'
+
+const fraunces = Fraunces({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-fraunces',
+    axes: ['SOFT', 'WONK', 'opsz'],
+})
+
+const instrument = Instrument_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-instrument',
+    weight: ['400', '500', '600', '700'],
+})
 
 const siteUrl = 'https://www.riverchasepharmacy.com'
 
@@ -45,8 +60,8 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-        <body className="flex flex-col min-h-screen">
+        <html lang="en" className={`${fraunces.variable} ${instrument.variable}`}>
+        <body className="flex flex-col min-h-screen bg-cream text-ink">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
