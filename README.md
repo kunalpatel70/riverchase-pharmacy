@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Riverchase Pharmacy
+
+Website for Riverchase Pharmacy — an independent community pharmacy in Hoover, Alabama. Built with [Next.js](https://nextjs.org), React 19, and Tailwind CSS v4. Deployed via AWS Amplify.
 
 ## Getting Started
 
