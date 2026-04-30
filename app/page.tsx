@@ -146,6 +146,7 @@ export default function Home() {
                                     className={`object-cover rounded-sm transition-opacity duration-[900ms] ease-out ${
                                         i === slide ? "opacity-100" : "opacity-0"
                                     }`}
+                                    style={i === 0 ? { objectPosition: "89% 35%" } : undefined}
                                     priority={i === 0}
                                 />
                             ))}
