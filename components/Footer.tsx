@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from "@heroicons/react/24/outline";
+import ChamberBadge from "@/components/ChamberBadge";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -73,6 +74,10 @@ export default function Footer() {
                             </div>
                         </li>
                     </ul>
+                    <div className="mt-8 pt-6 border-t border-rule">
+                        <p className="eyebrow mb-3">Member</p>
+                        <ChamberBadge />
+                    </div>
                 </div>
 
                 {/* Column 2 — navigation */}
