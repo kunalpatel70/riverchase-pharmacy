@@ -91,9 +91,14 @@ export default function Navbar() {
                         <PhoneIcon className="w-4 h-4 text-sage" />
                         <span className="font-medium tabular-nums">(205) 536-6014</span>
                     </a>
-                    <Link href="/refill" className="btn btn-accent text-sm">
+                    <a
+                        href="https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-accent text-sm"
+                    >
                         Refill Rx
-                    </Link>
+                    </a>
                 </div>
 
                 {/* Mobile toggle */}
@@ -137,9 +142,15 @@ export default function Navbar() {
                                 <PhoneIcon className="w-4 h-4 text-sage" />
                                 <span className="font-medium tabular-nums">(205) 536-6014</span>
                             </a>
-                            <Link href="/refill" onClick={() => setOpen(false)} className="btn btn-accent w-full">
+                            <a
+                                href="https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setOpen(false)}
+                                className="btn btn-accent w-full"
+                            >
                                 Refill Rx
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

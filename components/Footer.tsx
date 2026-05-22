@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const actionLinks = [
-    { href: "/refill", label: "Refill Prescription" },
+    { href: "https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx", label: "Refill Prescription" },
     { href: "/transfer", label: "Transfer Prescription" },
 ];
 
@@ -97,9 +97,20 @@ export default function Footer() {
                     <ul className="space-y-2 text-[0.95rem]">
                         {actionLinks.map((link) => (
                             <li key={link.href}>
-                                <Link href={link.href} className="link-underline">
-                                    {link.label}
-                                </Link>
+                                {link.href.startsWith("http") ? (
+                                    <a
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="link-underline"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ) : (
+                                    <Link href={link.href} className="link-underline">
+                                        {link.label}
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>

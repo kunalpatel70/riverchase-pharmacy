@@ -19,7 +19,7 @@ const quickActions = [
         icon: ArrowPathIcon,
         label: "Refill",
         desc: "Request a refill in under a minute.",
-        href: "/refill",
+        href: "https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx",
     },
     {
         icon: ClipboardDocumentCheckIcon,
@@ -47,7 +47,7 @@ const services = [
         title: "Prescription refills",
         desc: "Request refills online or by phone — with reminders and automatic sync for recurring medications.",
         img: "/service-packaging.jpg",
-        href: "/refill",
+        href: "https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx",
     },
     {
         no: "02",
@@ -116,10 +116,15 @@ export default function Home() {
                             the big chains forgot how to give.
                         </p>
                         <div className="mt-9 flex flex-wrap items-center gap-3">
-                            <Link href="/refill" className="btn btn-primary">
+                            <a
+                                href="https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-primary"
+                            >
                                 Refill a prescription
                                 <ArrowRightIcon className="w-4 h-4" />
-                            </Link>
+                            </a>
                             <Link href="/transfer" className="btn btn-ghost">
                                 Transfer to us
                             </Link>
@@ -178,22 +183,30 @@ export default function Home() {
             {/* ─────────── Quick actions strip ─────────── */}
             <section className="hairline-t hairline-b bg-paper">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-4 md:divide-x md:divide-[var(--rule)]">
-                    {quickActions.map((a) => (
-                        <Link
-                            key={a.label}
-                            href={a.href}
-                            className="group flex items-start gap-4 px-6 py-7 transition-colors hover:bg-cream"
-                        >
-                            <a.icon className="w-6 h-6 text-sage mt-1 shrink-0" />
-                            <div>
-                                <div className="flex items-center gap-1.5 font-display text-xl text-ink font-medium">
-                                    {a.label}
-                                    <ArrowRightIcon className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    {quickActions.map((a) => {
+                        const inner = (
+                            <>
+                                <a.icon className="w-6 h-6 text-sage mt-1 shrink-0" />
+                                <div>
+                                    <div className="flex items-center gap-1.5 font-display text-xl text-ink font-medium">
+                                        {a.label}
+                                        <ArrowRightIcon className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                    </div>
+                                    <p className="text-sm text-ink-soft mt-1 leading-snug">{a.desc}</p>
                                 </div>
-                                <p className="text-sm text-ink-soft mt-1 leading-snug">{a.desc}</p>
-                            </div>
-                        </Link>
-                    ))}
+                            </>
+                        );
+                        const className = "group flex items-start gap-4 px-6 py-7 transition-colors hover:bg-cream";
+                        return a.href.startsWith("http") ? (
+                            <a key={a.label} href={a.href} target="_blank" rel="noopener noreferrer" className={className}>
+                                {inner}
+                            </a>
+                        ) : (
+                            <Link key={a.label} href={a.href} className={className}>
+                                {inner}
+                            </Link>
+                        );
+                    })}
                 </div>
             </section>
 
@@ -241,32 +254,40 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--rule)] hairline-t hairline-b">
-                        {services.map((s) => (
-                            <Link
-                                key={s.title}
-                                href={s.href}
-                                className="group bg-paper hover:bg-cream transition-colors p-7 flex flex-col"
-                            >
-                                <div className="flex items-start justify-between">
-                                    <span className="font-display text-sm text-ink-mute tabular-nums">{s.no}</span>
-                                    <ArrowRightIcon className="w-4 h-4 text-ink-mute opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-ink transition-all" />
-                                </div>
-                                <div className="relative aspect-[5/4] mt-5 overflow-hidden bg-cream">
-                                    <Image
-                                        src={s.img}
-                                        alt=""
-                                        aria-hidden
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                        className="object-contain p-2 transition-opacity duration-500 group-hover:opacity-90"
-                                    />
-                                </div>
-                                <h3 className="mt-6 font-display text-[1.4rem] font-medium text-ink leading-tight">
-                                    {s.title}
-                                </h3>
-                                <p className="mt-2 text-ink-soft text-[0.95rem] leading-relaxed">{s.desc}</p>
-                            </Link>
-                        ))}
+                        {services.map((s) => {
+                            const inner = (
+                                <>
+                                    <div className="flex items-start justify-between">
+                                        <span className="font-display text-sm text-ink-mute tabular-nums">{s.no}</span>
+                                        <ArrowRightIcon className="w-4 h-4 text-ink-mute opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-ink transition-all" />
+                                    </div>
+                                    <div className="relative aspect-[5/4] mt-5 overflow-hidden bg-cream">
+                                        <Image
+                                            src={s.img}
+                                            alt=""
+                                            aria-hidden
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            className="object-contain p-2 transition-opacity duration-500 group-hover:opacity-90"
+                                        />
+                                    </div>
+                                    <h3 className="mt-6 font-display text-[1.4rem] font-medium text-ink leading-tight">
+                                        {s.title}
+                                    </h3>
+                                    <p className="mt-2 text-ink-soft text-[0.95rem] leading-relaxed">{s.desc}</p>
+                                </>
+                            );
+                            const className = "group bg-paper hover:bg-cream transition-colors p-7 flex flex-col";
+                            return s.href.startsWith("http") ? (
+                                <a key={s.title} href={s.href} target="_blank" rel="noopener noreferrer" className={className}>
+                                    {inner}
+                                </a>
+                            ) : (
+                                <Link key={s.title} href={s.href} className={className}>
+                                    {inner}
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     <div className="mt-12 flex flex-wrap gap-4">

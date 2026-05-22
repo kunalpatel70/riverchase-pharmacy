@@ -128,9 +128,14 @@ export default function Services() {
                             Contact us
                             <ArrowRightIcon className="w-4 h-4" />
                         </Link>
-                        <Link href="/refill" className="btn btn-ghost">
+                        <a
+                            href="https://www.fillmyrefills.com/Riverchase/OrderRefills.aspx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-ghost"
+                        >
                             Refill a prescription
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
