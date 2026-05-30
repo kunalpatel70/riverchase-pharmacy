@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import StructuredData from '@/components/StructuredData'
 import { Fraunces, Instrument_Sans } from 'next/font/google'
 
 import type { Metadata } from 'next'
@@ -61,6 +62,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${fraunces.variable} ${instrument.variable}`}>
+        <head>
+            <StructuredData />
+        </head>
         <body className="flex flex-col min-h-screen bg-cream text-ink">
         <Navbar />
         <main className="flex-grow">{children}</main>
