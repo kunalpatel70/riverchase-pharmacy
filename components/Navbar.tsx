@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Bars3Icon, XMarkIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, PhoneIcon, ArrowUpRightIcon, PlusIcon } from "@heroicons/react/24/outline";
 
 const links = [
     { href: "/", label: "Home" },
@@ -79,6 +79,16 @@ export default function Navbar() {
                             </Link>
                         );
                     })}
+                    <a
+                        href="https://www.riverchaseexpressclinic.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-3 inline-flex items-center gap-1.5 rounded-full border border-sage/40 bg-sage/5 pl-2.5 pr-3 py-1.5 text-sm font-medium text-ink-soft hover:text-ink hover:border-sage/70 hover:bg-sage/10 transition-colors"
+                    >
+                        <PlusIcon className="w-3.5 h-3.5 text-sage" strokeWidth={2.5} />
+                        Express Clinic
+                        <ArrowUpRightIcon className="w-3 h-3 text-sage" />
+                    </a>
                 </nav>
 
                 {/* Right cluster */}
@@ -128,12 +138,23 @@ export default function Navbar() {
                                     onClick={() => setOpen(false)}
                                     className={`py-3 text-base ${
                                         active ? "text-ink font-semibold" : "text-ink-soft"
-                                    } hairline-b last:border-0`}
+                                    } hairline-b`}
                                 >
                                     {link.label}
                                 </Link>
                             );
                         })}
+                        <a
+                            href="https://www.riverchaseexpressclinic.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setOpen(false)}
+                            className="py-3 text-base text-ink-soft flex items-center gap-2"
+                        >
+                            <PlusIcon className="w-4 h-4 text-sage" strokeWidth={2.5} />
+                            Express Clinic
+                            <ArrowUpRightIcon className="w-3.5 h-3.5 text-sage" />
+                        </a>
                         <div className="flex flex-col gap-3 mt-5">
                             <a
                                 href="tel:2055366014"

@@ -47,3 +47,6 @@ amplify_outputs.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# marketing assets (not part of website build)
+marketing/

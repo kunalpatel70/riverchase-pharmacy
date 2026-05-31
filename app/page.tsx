@@ -37,7 +37,7 @@ const quickActions = [
         icon: BuildingStorefrontIcon,
         label: "Express clinic",
         desc: "Walk-in care, right on site.",
-        href: "/services",
+        href: "https://www.riverchaseexpressclinic.com/",
     },
 ];
 
